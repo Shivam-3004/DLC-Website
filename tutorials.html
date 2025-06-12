@@ -74,17 +74,7 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 min-h-screen flex flex-col">
 
-  <!-- Language Selector Bar -->
-  <div class="fixed top-0 inset-x-0 bg-white dark:bg-gray-800 shadow-md z-50 flex justify-end items-center p-2 px-6 space-x-4">
-    <label for="languageSelector" class="sr-only">Select Language</label>
-    <select aria-label="Select language" id="languageSelector" class="text-base">
-      <option value="en" selected>English</option>
-      <option value="hi">Hindi</option>
-      <option value="es">Spanish</option>
-      <option value="ta">Tamil</option>
-    </select>
-  </div>
-
+  
   <!-- Navigation -->
   <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center p-4 max-w-7xl">
@@ -115,7 +105,18 @@
       </ul>
     </nav>
   </header>
-
+  
+  <!-- Language Selector Bar -->
+  <div class="fixed top-0 inset-x-0 bg-white dark:bg-gray-800 shadow-md z-50 flex justify-end items-center p-2 px-6 space-x-4">
+    <label for="languageSelector" class="sr-only">Select Language</label>
+    <select aria-label="Select language" id="languageSelector" class="text-base">
+      <option value="en" selected>English</option>
+      <option value="hi">Hindi</option>
+      <option value="es">Spanish</option>
+      <option value="ta">Tamil</option>
+    </select>
+  </div>
+  
   <!-- Main Content -->
   <main class="flex-grow container mx-auto p-6 pt-12 max-w-7xl flex flex-col gap-12">
     <h2 class="text-4xl font-bold text-blue-600 dark:text-blue-400 text-center mb-10 fadeInUp">
