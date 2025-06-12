@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,14 +8,26 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .fadeInUp { animation: fadeInUp 0.6s ease forwards; }
+
+    .fadeInUp {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
     nav a.nav-link {
       transition: background-color 0.3s ease, color 0.3s ease;
       position: relative;
     }
+
     nav a.nav-link::after {
       content: "";
       position: absolute;
@@ -26,12 +39,21 @@
       transition: width 0.3s ease;
       border-radius: 2px;
     }
+
     nav a.nav-link:hover::after,
     nav a.nav-link.active::after {
       width: 100%;
     }
-    nav a.nav-link:hover { color: #3b82f6; }
-    nav a.nav-link.active { font-weight: 700; color: #1e40af; }
+
+    nav a.nav-link:hover {
+      color: #3b82f6;
+    }
+
+    nav a.nav-link.active {
+      font-weight: 700;
+      color: #1e40af;
+    }
+
     /* Language selector styling */
     #languageSelector {
       background-color: #881af0;
@@ -40,17 +62,29 @@
       padding: 0.25rem 0.5rem;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     #languageSelector:hover {
       background-color: #5c68cf;
       cursor: pointer;
     }
+
     @media (min-width: 1920px) {
-      .container { max-width: 1600px; }
+      .container {
+        max-width: 1600px;
+      }
     }
-    footer { transition: background-color 0.3s ease; }
-    #chatLog { height: 320px; overflow-y: auto; }
+
+    footer {
+      transition: background-color 0.3s ease;
+    }
+
+    #chatLog {
+      height: 320px;
+      overflow-y: auto;
+    }
   </style>
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 min-h-screen flex flex-col">
   <!-- Header (Content remains same) -->
   <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
@@ -59,7 +93,8 @@
         Empowering Digital Literacy!
       </h1>
       <!-- Toggle button for mobile navigation -->
-      <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" class="md:hidden px-2 py-1 focus:outline-none">
+      <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false"
+        class="md:hidden px-2 py-1 focus:outline-none">
         ☰
       </button>
       <!-- Desktop Navigation -->
@@ -103,13 +138,19 @@
       DigiBuddy is here to answer your frequently asked questions about digital tools.
       Type your question below and get helpful guidance instantly.
     </p>
+    
     <!-- Chat Input Section -->
-    <div id="chatContainer" class="w-full bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex flex-col">
-      <div id="chatLog" class="mb-4 rounded border border-gray-300 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900" role="log" aria-label="Chat messages"></div>
-      <form id="chatForm" class="flex gap-3 items-center" aria-label="Chat input form">
-        <input type="text" id="chatInput" class="flex-grow rounded-full border border-gray-300 dark:border-gray-600 py-3 px-4 sm:py-4 sm:px-6 dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Ask DigiBuddy a question..." aria-required="true" required />
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 transition">
-          <img src="src/send.png" alt="Send" class="w-5 h-5 sm:w-6 sm:h-6">
+    <div id="chatContainer" class="w-full bg-white dark:bg-gray-800 rounded-lg shadow p-3 sm:p-4 flex flex-col">
+      <div id="chatLog" class="mb-3 rounded border border-gray-300 dark:border-gray-700 p-3 bg-gray-50 dark:bg-gray-900"
+        role="log" aria-label="Chat messages"></div>
+      <form id="chatForm" class="flex gap-2 items-center" aria-label="Chat input form">
+        <input type="text" id="chatInput"
+          class="flex-grow rounded-full border border-gray-300 dark:border-gray-600 py-2 px-3 sm:py-4 sm:px-6 dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition text-xs sm:text-sm"
+          placeholder="Ask DigiBuddy a question..." aria-required="true" required />
+        <button type="submit"
+          class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2 sm:p-3 flex items-center justify-center transition min-w-[40px] min-h-[40px]">
+          <img src="src/send.png" alt="Send"
+            class="w-4 h-4 sm:w-5 sm:h-5">
         </button>
       </form>
     </div>
@@ -182,4 +223,5 @@
     });
   </script>
 </body>
+
 </html>
