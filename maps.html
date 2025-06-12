@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DLC - Google Maps Tutorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Same styles as the other pages */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fadeInUp {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    nav a.nav-link {
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+    nav a.nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #3b82f6;
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    nav a.nav-link:hover::after,
+    nav a.nav-link.active::after {
+      width: 100%;
+    }
+    nav a.nav-link:hover {
+      color: #3b82f6;
+    }
+    nav a.nav-link.active {
+      font-weight: 700;
+      color: #1e40af;
+    }
+    #languageSelector {
+      background-color: #881af0; /* light blue-gray background */
+      border: 1px solid #cbd5e0; /* subtle border */
+      border-radius: 0.375rem; /* rounded-md */
+      padding: 0.25rem 0.5rem; /* py-1 px-2 */
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #languageSelector:hover {
+      background-color: #5c68cf; /* slightly darker on hover */
+      cursor: pointer;
+    }
+    @media (min-width: 1920px) {
+      .container {
+        max-width: 1600px;
+      }
+    }
+    footer {
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 min-h-screen flex flex-col">
+
+  <!-- Language Selector Bar -->
+  <div class="fixed top-0 inset-x-0 bg-white dark:bg-gray-800 shadow-md z-50 flex justify-end items-center p-2 px-6 space-x-4">
+    <label for="languageSelector" class="sr-only">Select Language</label>
+    <select aria-label="Select language" id="languageSelector" class="text-base">
+      <option value="en" selected>English</option>
+      <option value="hi">Hindi</option>
+      <option value="es">Spanish</option>
+      <option value="ta">Tamil</option>
+    </select>
+  </div>
+
+  <!-- Navigation -->
+  <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4 max-w-7xl">
+      <h1 class="text-3xl font-extrabold text-blue-600 dark:text-blue-400 select-none">
+        Empowering Digital Literacy!
+      </h1>
+      <!-- Toggle button for mobile navigation -->
+      <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" class="md:hidden px-2 py-1 focus:outline-none">
+        ☰
+      </button>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block">
+        <ul role="menubar" aria-label="Primary navigation" class="flex space-x-8">
+          <li role="menuitem"><a href="index.html" class="nav-link active">Home</a></li>
+          <li role="menuitem"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+          <li role="menuitem"><a href="aichat.html" class="nav-link">AI Chat</a></li>
+          <li role="menuitem"><a href="feedback.html" class="nav-link">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Mobile Navigation Menu -->
+    <nav id="navMenu" aria-label="Mobile Navigation" class="md:hidden hidden bg-white dark:bg-gray-800 px-4 pt-2 pb-4">
+      <ul role="menubar" class="space-y-2">
+        <li role="menuitem"><a href="index.html" class="nav-link block">Home</a></li>
+        <li role="menuitem"><a href="tutorials.html" class="nav-link block">Tutorials</a></li>
+        <li role="menuitem"><a href="aichat.html" class="nav-link block">AI Chat</a></li>
+        <li role="menuitem"><a href="feedback.html" class="nav-link block">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto p-6 pt-12 max-w-4xl fadeInUp">
+    <h2 class="text-4xl font-bold mb-8 text-blue-600 dark:text-blue-400">
+      Google Maps Tutorial
+    </h2>
+    <p class="mb-6 text-gray-700 dark:text-gray-300">
+      Discover how to search for places, use directions, and explore street view confidently with Google Maps.
+    </p>
+    <img src="https://i.pcmag.com/imagery/articles/01IB0rgNa4lGMBlmLyi0VP6-44.fit_lim.size_1600x900.v1643818850.jpg" 
+         alt="Google Maps tutorial screenshot" 
+         class="rounded-lg shadow-lg mb-6 w-full" />
+    <video controls class="rounded-lg w-full" preload="metadata" poster="https://i.pcmag.com/imagery/articles/01IB0rgNa4lGMBlmLyi0VP6-24.fit_lim.size_768x.png">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 dark:bg-blue-800 text-white py-6 text-center select-none mt-12">
+    <p>&copy; 2025 Digital Literacy Course. Made by Shivam All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('languageSelector').addEventListener('change', e => {
+      alert(`Language switched to: ${e.target.value}. Multi-language coming soon!`);
+    });
+
+    // Toggle the mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('hidden');
+    });
+    
+    // Automatically hide mobile menu when a link is clicked
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
