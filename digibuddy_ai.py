@@ -15,7 +15,7 @@ cors(app, allow_origin="*")  # Enable CORS for all origins
 # Set up Groq API client
 client = AsyncGroq(api_key=os.getenv("GROQ_API_KEY"))
 
-@app.route("/chat", methods=["POST"])
+@app.route("/", methods=["POST"])
 async def chat():
     try:
         data = await request.get_json()
