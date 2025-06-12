@@ -95,7 +95,7 @@
   </header>
 
   <!-- Language Selector Bar -->
-  <div class="fixed top-0 inset-x-0 bg-white dark:bg-gray-800 shadow-md z-50 flex justify-end items-center p-2 px-6 space-x-4">
+  <div class="bg-white dark:bg-gray-800 shadow flex justify-end items-center p-2 px-6 space-x-4">
     <label for="languageSelector" class="sr-only">Select Language</label>
     <select aria-label="Select language" id="languageSelector" class="text-base">
       <option value="en" selected>English</option>
@@ -128,10 +128,6 @@
   </footer>
 
   <script>
-    document.getElementById('languageSelector').addEventListener('change', e => {
-      alert(`Language switched to: ${e.target.value}. Multi-language coming soon!`);
-    });
-
     // Toggle the mobile menu
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
@@ -148,6 +144,10 @@
         navMenu.classList.add('hidden');
         menuToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    document.getElementById('languageSelector').addEventListener('change', e => {
+      alert(`Language switched to: ${e.target.value}. Multi-language coming soon!`);
     });
   </script>
 </body>
