@@ -11,7 +11,6 @@
       100% { opacity: 1; transform: translateY(0); }
     }
     .fadeInUp { animation: fadeInUp 0.6s ease forwards; }
-
     nav a.nav-link {
       transition: background-color 0.3s ease, color 0.3s ease;
       position: relative;
@@ -33,38 +32,30 @@
     }
     nav a.nav-link:hover { color: #3b82f6; }
     nav a.nav-link.active { font-weight: 700; color: #1e40af; }
-    /* Existing language selector styling updated for a better color */
+    /* Language selector styling */
     #languageSelector {
-      background-color: #881af0; /* light blue-gray background */
-      border: 1px solid #cbd5e0; /* subtle border */
-      border-radius: 0.375rem; /* rounded-md */
-      padding: 0.25rem 0.5rem; /* py-1 px-2 */
+      background-color: #881af0;
+      border: 1px solid #cbd5e0;
+      border-radius: 0.375rem;
+      padding: 0.25rem 0.5rem;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     #languageSelector:hover {
-      background-color: #5c68cf; /* slightly darker on hover */
+      background-color: #5c68cf;
       cursor: pointer;
     }
     @media (min-width: 1920px) {
-      .container {
-        max-width: 1600px;
-      }
+      .container { max-width: 1600px; }
     }
-    footer {
-      transition: background-color 0.3s ease;
-    }
-    #chatLog {
-      height: 320px;
-      overflow-y: auto;
-    }
+    footer { transition: background-color 0.3s ease; }
+    #chatLog { height: 320px; overflow-y: auto; }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200 min-h-screen flex flex-col">
-
-  <!-- Navigation -->
+  <!-- Header (Content remains same) -->
   <header class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center p-4 max-w-7xl">
-      <h1 class="text-3xl font-extrabold text-blue-600 dark:text-blue-400 select-none">
+    <div class="container mx-auto flex justify-between items-center p-3 max-w-7xl">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-blue-600 dark:text-blue-400 select-none">
         Empowering Digital Literacy!
       </h1>
       <!-- Toggle button for mobile navigation -->
@@ -73,21 +64,21 @@
       </button>
       <!-- Desktop Navigation -->
       <nav class="hidden md:block">
-        <ul role="menubar" aria-label="Primary navigation" class="flex space-x-8">
-          <li role="menuitem"><a href="index.html" class="nav-link active">Home</a></li>
-          <li role="menuitem"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
-          <li role="menuitem"><a href="aichat.html" class="nav-link">AI Chat</a></li>
-          <li role="menuitem"><a href="feedback.html" class="nav-link">Feedback</a></li>
+        <ul role="menubar" aria-label="Primary navigation" class="flex space-x-4 sm:space-x-8">
+          <li role="menuitem"><a href="index.html" class="nav-link active text-sm sm:text-base">Home</a></li>
+          <li role="menuitem"><a href="tutorials.html" class="nav-link text-sm sm:text-base">Tutorials</a></li>
+          <li role="menuitem"><a href="aichat.html" class="nav-link text-sm sm:text-base">AI Chat</a></li>
+          <li role="menuitem"><a href="feedback.html" class="nav-link text-sm sm:text-base">Feedback</a></li>
         </ul>
       </nav>
     </div>
     <!-- Mobile Navigation Menu -->
     <nav id="navMenu" aria-label="Mobile Navigation" class="md:hidden hidden bg-white dark:bg-gray-800 px-4 pt-2 pb-4">
       <ul role="menubar" class="space-y-2">
-        <li role="menuitem"><a href="index.html" class="nav-link block">Home</a></li>
-        <li role="menuitem"><a href="tutorials.html" class="nav-link block">Tutorials</a></li>
-        <li role="menuitem"><a href="aichat.html" class="nav-link block">AI Chat</a></li>
-        <li role="menuitem"><a href="feedback.html" class="nav-link block">Feedback</a></li>
+        <li role="menuitem"><a href="index.html" class="nav-link block text-sm">Home</a></li>
+        <li role="menuitem"><a href="tutorials.html" class="nav-link block text-sm">Tutorials</a></li>
+        <li role="menuitem"><a href="aichat.html" class="nav-link block text-sm">AI Chat</a></li>
+        <li role="menuitem"><a href="feedback.html" class="nav-link block text-sm">Feedback</a></li>
       </ul>
     </nav>
   </header>
@@ -103,31 +94,54 @@
     </select>
   </div>
 
-  <main class="flex-grow container mx-auto p-6 pt-12 max-w-4xl flex flex-col items-center fadeInUp">
-    <h2 class="text-4xl font-bold mb-8 text-blue-600 dark:text-blue-400 text-center">DigiBuddy AI Chatbot</h2>
-    <p class="mb-6 text-gray-700 dark:text-gray-300 max-w-lg text-center">
-      DigiBuddy is here to answer your frequently asked questions about digital tools. Type your question below and get helpful guidance instantly.
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto p-4 pt-12 max-w-4xl flex flex-col items-center fadeInUp">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 dark:text-blue-400 text-center">
+      DigiBuddy AI Chatbot
+    </h2>
+    <p class="mb-4 text-gray-700 dark:text-gray-300 max-w-lg text-center text-sm sm:text-base">
+      DigiBuddy is here to answer your frequently asked questions about digital tools.
+      Type your question below and get helpful guidance instantly.
     </p>
-    <div id="chatContainer" class="w-full bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex flex-col">
+    <!-- Chat Input Section -->
+    <div id="chatContainer" class="w-full bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex flex-col">
       <div id="chatLog" class="mb-4 rounded border border-gray-300 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900" role="log" aria-label="Chat messages"></div>
-      <form id="chatForm" class="flex gap-3" aria-label="Chat input form">
-        <input type="text" id="chatInput" class="flex-grow rounded border border-gray-300 dark:border-gray-600 p-3 dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="Ask DigiBuddy a question..." aria-required="true" required />
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white rounded px-6 font-semibold transition">Send</button>
+      <form id="chatForm" class="flex gap-3 items-center" aria-label="Chat input form">
+        <input type="text" id="chatInput" class="flex-grow rounded-full border border-gray-300 dark:border-gray-600 py-3 px-4 sm:py-4 sm:px-6 dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition" placeholder="Ask DigiBuddy a question..." aria-required="true" required />
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 transition">
+          <img src="src/send.png" alt="Send" class="w-5 h-5 sm:w-6 sm:h-6">
+        </button>
       </form>
     </div>
-    <small class="text-center mt-3 text-gray-500 dark:text-gray-400 max-w-lg">
+    <small class="text-center mt-2 text-gray-500 dark:text-gray-400 max-w-lg text-xs sm:text-sm">
       Note: Chatbot demo only; responses are simulated.
     </small>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-blue-600 dark:bg-blue-800 text-white py-6 text-center select-none mt-12">
-    <p>&copy; 2025 Digital Literacy Course. Made by Shivam All rights reserved.</p>
+  <footer class="bg-blue-600 dark:bg-blue-800 text-white py-4 text-center select-none mt-6">
+    <p class="text-xs sm:text-sm">&copy; 2025 Digital Literacy Course. Made by Shivam. All rights reserved.</p>
   </footer>
 
- <script>
+  <script>
+    // Language selector change event
     document.getElementById('languageSelector').addEventListener('change', e => {
       alert(`Language switched to: ${e.target.value}. Multi-language coming soon!`);
+    });
+
+    // Toggle mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
     });
 
     const chatLog = document.getElementById('chatLog');
@@ -135,38 +149,37 @@
     const chatInput = document.getElementById('chatInput');
 
     function appendMessage(text, isUser) {
-        const p = document.createElement('p');
-        p.className = isUser ? 'text-right text-blue-700 dark:text-blue-400 mb-2' : 'text-left text-gray-800 dark:text-gray-300 mb-2';
-        p.textContent = (isUser ? 'You: ' : 'DigiBuddy: ') + text;
-        chatLog.appendChild(p);
-        chatLog.scrollTop = chatLog.scrollHeight;
+      const p = document.createElement('p');
+      p.className = isUser
+        ? 'text-right text-blue-700 dark:text-blue-400 mb-2 text-xs sm:text-sm'
+        : 'text-left text-gray-800 dark:text-gray-300 mb-2 text-xs sm:text-sm';
+      p.textContent = (isUser ? 'You: ' : 'DigiBuddy: ') + text;
+      chatLog.appendChild(p);
+      chatLog.scrollTop = chatLog.scrollHeight;
     }
 
     async function sendMessage() {
-        const userMessage = chatInput.value.trim();
-        if (!userMessage) return;
-
-        appendMessage(userMessage, true);
-        chatInput.value = '';
-
-        try {
-            const response = await fetch("https://dlc-website.onrender.com/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userMessage })
-            });
-
-            const data = await response.json();
-            appendMessage(data.response, false);
-        } catch (error) {
-            appendMessage("Server Error! Unable to connect to DigiBuddy.", false);
-        }
+      const userMessage = chatInput.value.trim();
+      if (!userMessage) return;
+      appendMessage(userMessage, true);
+      chatInput.value = '';
+      try {
+        const response = await fetch("https://dlc-website.onrender.com/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: userMessage })
+        });
+        const data = await response.json();
+        appendMessage(data.response, false);
+      } catch (error) {
+        appendMessage("Server Error! Unable to connect to DigiBuddy.", false);
+      }
     }
 
     chatForm.addEventListener('submit', e => {
-        e.preventDefault();
-        sendMessage();
+      e.preventDefault();
+      sendMessage();
     });
-</script>
+  </script>
 </body>
 </html>
