@@ -10,7 +10,7 @@ load_dotenv()
 
 # Initialize Quart app
 app = Quart(__name__)
-cors(app, allow_origin="*")  # Enable CORS for all origins
+cors(app, allow_origin="https://shivam-3004.github.io")  # Enable CORS for all origins
 
 # Set up Groq API client
 client = AsyncGroq(api_key=os.getenv("GROQ_API_KEY"))
