@@ -193,6 +193,21 @@
         menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Get current filename
+      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+      // Iterate through each navigation link and adjust active class accordingly
+      document.querySelectorAll('nav a.nav-link').forEach(link => {
+        // Remove active class from all links
+        link.classList.remove("active");
+        // If the link href matches the current page, add active class
+        // You can adjust the comparison method if needed
+        if(link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>

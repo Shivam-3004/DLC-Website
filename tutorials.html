@@ -183,6 +183,21 @@
         menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the current filename. Defaults to "index.html" if empty.
+      var currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+      // Iterate over all navigation links and adjust the active class.
+      document.querySelectorAll('nav a.nav-link').forEach(function(link) {
+        // Remove any existing "active" class.
+        link.classList.remove("active");
+        // If the link href matches the current page filename, add the "active" class.
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>

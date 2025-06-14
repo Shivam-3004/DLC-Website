@@ -173,6 +173,18 @@
         menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the current filename (defaults to "index.html" if empty)
+      var currentPage = window.location.pathname.split("/").pop() || "index.html";
+      // Iterate over all nav links and update active class
+      document.querySelectorAll('nav a.nav-link').forEach(function(link) {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
